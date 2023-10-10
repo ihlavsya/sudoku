@@ -16,7 +16,7 @@ function SudokuGrid() {
     useEffect(() => {
         setIsRed(isGridRed(validGrid));
     }, [validGrid])
-    
+
     // Define an event handler for user input
     const handleCellChange = (
         event: React.ChangeEvent<HTMLInputElement>,
@@ -30,11 +30,7 @@ function SudokuGrid() {
         setSudokuGrid([...sudokuGrid]);
 
         const areAll = sudokuGrid.every(row => row.every(cell => cell.value !== undefined));
-        if (areAll) {
-            setIsCompleted(true);
-        } else {
-            setIsCompleted(false);
-        }
+        setIsCompleted(areAll);
     };
 
     return (
